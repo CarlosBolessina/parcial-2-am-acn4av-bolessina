@@ -41,4 +41,24 @@ public class RepositorioProyectos {
         // Lo agregamos al principio (posición 0) para que los más nuevos salgan arriba
         listaProyectos.add(0, proyecto);
     }
+
+    public static void actualizarLetras(String nombreProyecto, String nuevasLetras) {
+        inicializarSiEsNecesario();
+        for (ProyectoMusical p : listaProyectos) {
+            if (p.getNombre().equals(nombreProyecto)) {
+                p.setLetras(nuevasLetras);
+                break;
+            }
+        }
+    }
+
+    public static ProyectoMusical buscarPorNombre(String nombreProyecto) {
+        inicializarSiEsNecesario();
+        for (ProyectoMusical p : listaProyectos) {
+            if (p.getNombre().equals(nombreProyecto)) {
+                return p;
+            }
+        }
+        return null;
+    }
 }

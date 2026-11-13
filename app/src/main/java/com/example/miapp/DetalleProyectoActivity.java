@@ -46,7 +46,9 @@ public class DetalleProyectoActivity extends AppCompatActivity {
         }
 
         btnVerLetras.setOnClickListener(v -> {
-            Toast.makeText(this, "Próximamente: Pantalla de Letras", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(DetalleProyectoActivity.this, LetrasActivity.class);
+            intent.putExtra("proyecto", proyecto);
+            startActivity(intent);
         });
 
         btnVolverInicio.setOnClickListener(v -> {

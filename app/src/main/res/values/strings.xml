@@ -47,4 +47,21 @@
     <string name="titulo_mis_proyectos">Mis Proyectos</string>
     <string name="subtitulo_mis_proyectos">Tocá un proyecto para ver su ficha completa</string>
 
+    <!-- Pantalla de Letras -->
+    <string name="titulo_letras">Letras de la canción</string>
+    <string name="label_seccion_letra">Sección</string>
+    <string name="label_contenido_letra">Letra de la sección</string>
+    <string name="hint_contenido_letra">Escribí los versos acá...</string>
+    <string name="boton_agregar_seccion">+ Agregar sección</string>
+    <string name="boton_guardar_letras">Guardar letras y volver</string>
+    <string name="sin_letras_cargadas">Todavía no agregaste secciones de letra para este proyecto.</string>
+
+    <string-array name="secciones_letra">
+        <item>Verso</item>
+        <item>Estribillo</item>
+        <item>Puente</item>
+        <item>Intro</item>
+        <item>Outro</item>
+    </string-array>
+
 </resources>

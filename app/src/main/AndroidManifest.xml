@@ -36,6 +36,11 @@
             android:name=".MisProyectosActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".LetrasActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>
