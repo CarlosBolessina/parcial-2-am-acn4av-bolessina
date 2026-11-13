@@ -3,7 +3,6 @@ package com.example.miapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,9 +22,10 @@ public class InicioActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // De momento avisamos; en el próximo paso la conectamos a MisProyectosActivity
+        // Navegación hacia el listado de proyectos
         btnMisProyectos.setOnClickListener(v -> {
-            Toast.makeText(this, "Próximamente: Mis Proyectos", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(InicioActivity.this, MisProyectosActivity.class);
+            startActivity(intent);
         });
     }
 }

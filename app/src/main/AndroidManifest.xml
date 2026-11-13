@@ -32,6 +32,10 @@
             android:name=".DetalleProyectoActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".MisProyectosActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

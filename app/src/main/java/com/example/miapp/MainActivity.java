@@ -181,6 +181,8 @@ public class MainActivity extends AppCompatActivity {
                     ideaTexto
             );
 
+            RepositorioProyectos.agregarProyecto(nuevoProyecto);
+
             // Preparamos el Intent y metemos el objeto como Extra
             Intent intent = new Intent(MainActivity.this, DetalleProyectoActivity.class);
             intent.putExtra("proyecto", nuevoProyecto);

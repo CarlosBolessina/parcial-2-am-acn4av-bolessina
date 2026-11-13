@@ -43,4 +43,8 @@
     <string name="boton_ver_letras">Ver / Editar letras</string>
     <string name="boton_volver_inicio">Volver al inicio</string>
 
+    <!-- Pantalla Mis Proyectos -->
+    <string name="titulo_mis_proyectos">Mis Proyectos</string>
+    <string name="subtitulo_mis_proyectos">Tocá un proyecto para ver su ficha completa</string>
+
 </resources>
