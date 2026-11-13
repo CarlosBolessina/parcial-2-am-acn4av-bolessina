@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_main">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/background_content"
+            android:padding="@dimen/padding_screen">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/subtitulo_detalle_proyecto"
+                android:textSize="@dimen/text_size_label"
+                android:textColor="@color/text_secondary" />
+
+            <TextView
+                android:id="@+id/txtDetalleNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:textSize="@dimen/text_size_title"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imgDetalleGenero"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image_height"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:scaleType="centerCrop"
+                android:src="@drawable/musica"
+                android:contentDescription="@string/descripcion_imagen_musica" />
+
+            <!-- Género -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detalle_genero"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_label" />
+
+            <TextView
+                android:id="@+id/txtDetalleGenero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_label" />
+
+            <!-- Tonalidad y Tempo en fila -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/margin_medium">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/detalle_tonalidad"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_size_label" />
+
+                    <TextView
+                        android:id="@+id/txtDetalleTonalidad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/text_size_label" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/detalle_tempo"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_size_label" />
+
+                    <TextView
+                        android:id="@+id/txtDetalleTempo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/text_size_label" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Instrumentos -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detalle_instrumentos"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_label" />
+
+            <TextView
+                android:id="@+id/txtDetalleInstrumentos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_label" />
+
+            <!-- Idea Musical -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detalle_idea"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_label" />
+
+            <TextView
+                android:id="@+id/txtDetalleIdea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_xlarge"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_label" />
+
+            <!-- Botones de acción -->
+            <Button
+                android:id="@+id/btnVerLetras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:backgroundTint="@color/button_primary"
+                android:textColor="@color/text_on_button"
+                android:text="@string/boton_ver_letras" />
+
+            <Button
+                android:id="@+id/btnVolverInicio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/border"
+                android:textColor="@color/text_on_button"
+                android:text="@string/boton_volver_inicio" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

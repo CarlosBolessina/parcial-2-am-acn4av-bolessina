@@ -20,6 +20,8 @@ import android.widget.LinearLayout;
 
 import android.view.View;
 
+import android.content.Intent;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -169,14 +171,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-            String mensaje = "Proyecto creado: " + nombreTexto
-                    + "\nGénero: " + genero.getSelectedItem().toString()
-                    + "\nInstrumentos: " + instrumentosTexto
-                    + "\nTonalidad: " + tonalidad.getSelectedItem().toString()
-                    + "\nTempo: " + tempoTexto
-                    + "\nIdea: " + ideaTexto;
+            // Creamos el objeto con todos los datos ingresados
+            ProyectoMusical nuevoProyecto = new ProyectoMusical(
+                    nombreTexto.trim(),
+                    genero.getSelectedItem().toString(),
+                    instrumentosTexto,
+                    tonalidad.getSelectedItem().toString(),
+                    tempoTexto,
+                    ideaTexto
+            );
 
-            Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show();
+            // Preparamos el Intent y metemos el objeto como Extra
+            Intent intent = new Intent(MainActivity.this, DetalleProyectoActivity.class);
+            intent.putExtra("proyecto", nuevoProyecto);
+            startActivity(intent);
         });
 
         agregarInstrumento.setOnClickListener(v -> {
