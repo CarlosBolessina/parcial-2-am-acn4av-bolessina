@@ -26,4 +26,10 @@
 
     <string name="descripcion_imagen_musica">Imagen relacionada con composición musical</string>
 
+    <!-- Pantalla de Inicio -->
+    <string name="bienvenida_titulo">Bienvenido a tu estudio</string>
+    <string name="bienvenida_descripcion">Organizá tus ideas musicales, elegí tus instrumentos y escribí tus próximas canciones en un solo lugar.</string>
+    <string name="boton_ir_nuevo_proyecto">+ Nuevo proyecto</string>
+    <string name="boton_ir_mis_proyectos">Mis proyectos</string>
+
 </resources>

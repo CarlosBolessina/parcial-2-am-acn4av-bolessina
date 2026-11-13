@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_main"
+    android:padding="@dimen/padding_screen">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@color/background_content"
+        android:padding="@dimen/padding_screen"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:text="@string/titulo_principal"
+            android:textSize="@dimen/text_size_title"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imgInicio"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/image_height"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:scaleType="centerCrop"
+            android:src="@drawable/musica"
+            android:contentDescription="@string/descripcion_imagen_musica" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:text="@string/bienvenida_titulo"
+            android:textSize="@dimen/text_size_subtitle"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/margin_xlarge"
+            android:text="@string/bienvenida_descripcion"
+            android:textSize="@dimen/text_size_label"
+            android:textColor="@color/text_secondary" />
+
+        <Button
+            android:id="@+id/btnIrNuevoProyecto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:backgroundTint="@color/button_primary"
+            android:textColor="@color/text_on_button"
+            android:text="@string/boton_ir_nuevo_proyecto" />
+
+        <Button
+            android:id="@+id/btnIrMisProyectos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_add"
+            android:textColor="@color/text_on_button"
+            android:text="@string/boton_ir_mis_proyectos" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
