@@ -43,45 +43,42 @@ public class MisProyectosActivity extends AppCompatActivity {
         List<ProyectoMusical> proyectos = RepositorioProyectos.obtenerTodos();
 
         for (ProyectoMusical proyecto : proyectos) {
-            // 1. Creamos el contenedor de la tarjeta
             LinearLayout tarjeta = new LinearLayout(this);
             tarjeta.setOrientation(LinearLayout.VERTICAL);
-            tarjeta.setPadding(32, 24, 32, 24);
-            tarjeta.setBackgroundColor(Color.WHITE);
+            tarjeta.setBackgroundColor(getResources().getColor(android.R.color.white, getTheme()));
+            int padding = (int) (16 * getResources().getDisplayMetrics().density);
+            tarjeta.setPadding(padding, padding, padding, padding);
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
-            params.setMargins(0, 0, 0, 24);
+            int margenInferior = (int) (12 * getResources().getDisplayMetrics().density);
+            params.setMargins(0, 0, 0, margenInferior);
             tarjeta.setLayoutParams(params);
 
-            // 2. Título de la canción
-            TextView txtTitulo = new TextView(this);
-            txtTitulo.setText(proyecto.getNombre());
-            txtTitulo.setTextSize(20);
-            txtTitulo.setTypeface(null, Typeface.BOLD);
-            txtTitulo.setTextColor(ContextCompat.getColor(this, R.color.text_primary));
+            TextView txtNombre = new TextView(this);
+            txtNombre.setText(proyecto.getNombre());
+            txtNombre.setTextSize(18);
+            txtNombre.setTypeface(null, android.graphics.Typeface.BOLD);
+            txtNombre.setTextColor(getResources().getColor(android.R.color.black, getTheme()));
 
-            // 3. Subtítulo con género, tonalidad y tempo
             TextView txtInfo = new TextView(this);
-            String tempoTexto = proyecto.getTempo().trim().isEmpty() ? "-" : proyecto.getTempo() + " BPM";
-            txtInfo.setText(proyecto.getGenero() + "  •  Tonalidad: " + proyecto.getTonalidad() + "  •  " + tempoTexto);
-            txtInfo.setTextSize(15);
-            txtInfo.setTextColor(ContextCompat.getColor(this, R.color.text_secondary));
-            txtInfo.setPadding(0, 8, 0, 8);
+            String tempoTexto = proyecto.getTempo().trim().isEmpty()
+                    ? "-"
+                    : getString(R.string.formato_bpm, proyecto.getTempo());
+            txtInfo.setText(getString(
+                    R.string.formato_info_proyecto,
+                    proyecto.getGenero(),
+                    proyecto.getTonalidad(),
+                    tempoTexto
+            ));
+            txtInfo.setTextSize(14);
+            txtInfo.setPadding(0, (int) (4 * getResources().getDisplayMetrics().density), 0, 0);
 
-            // 4. Instrumentos
-            TextView txtInstrumentos = new TextView(this);
-            txtInstrumentos.setText(proyecto.getInstrumentos());
-            txtInstrumentos.setTextSize(14);
-            txtInstrumentos.setTextColor(ContextCompat.getColor(this, R.color.button_primary));
-
-            tarjeta.addView(txtTitulo);
+            tarjeta.addView(txtNombre);
             tarjeta.addView(txtInfo);
-            tarjeta.addView(txtInstrumentos);
 
-            // 5. Al tocar la tarjeta, enviamos ese proyecto a DetalleProyectoActivity
             tarjeta.setOnClickListener(v -> {
                 Intent intent = new Intent(MisProyectosActivity.this, DetalleProyectoActivity.class);
                 intent.putExtra("proyecto", proyecto);

@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide;
 
 public class DetalleProyectoActivity extends AppCompatActivity {
 
+    private ProyectoMusical proyecto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +32,7 @@ public class DetalleProyectoActivity extends AppCompatActivity {
         Button btnVolverInicio = findViewById(R.id.btnVolverInicio);
 
         // Recibimos el objeto enviado desde la pantalla anterior mediante Extras
-        ProyectoMusical proyecto = (ProyectoMusical) getIntent().getSerializableExtra("proyecto");
+         proyecto = (ProyectoMusical) getIntent().getSerializableExtra("proyecto");
 
         if (proyecto != null) {
             txtNombre.setText(proyecto.getNombre());

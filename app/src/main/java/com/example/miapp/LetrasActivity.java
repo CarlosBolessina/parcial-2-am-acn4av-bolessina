@@ -53,7 +53,7 @@ public class LetrasActivity extends AppCompatActivity {
             String texto = edtContenido.getText().toString().trim();
 
             if (texto.isEmpty()) {
-                Toast.makeText(this, "Escribí la letra antes de agregar", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.toast_letra_vacia, Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -70,7 +70,7 @@ public class LetrasActivity extends AppCompatActivity {
 
         btnGuardarLetras.setOnClickListener(v -> {
             RepositorioProyectos.actualizarLetras(nombreProyecto, letrasAcumuladas.toString());
-            Toast.makeText(this, "Letras guardadas en el proyecto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.toast_letras_guardadas, Toast.LENGTH_SHORT).show();
             finish(); // Cierra LetrasActivity y vuelve al Detalle del proyecto
         });
     }
@@ -106,6 +106,6 @@ public class LetrasActivity extends AppCompatActivity {
     }
 
     private void mostrarBloquePrevio(String textoCompleto) {
-        agregarTarjetaSeccion("Letras guardadas", textoCompleto.trim());
+        agregarTarjetaSeccion(getString(R.string.titulo_letras_guardadas), textoCompleto.trim());
     }
 }

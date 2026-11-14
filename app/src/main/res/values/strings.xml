@@ -64,4 +64,11 @@
         <item>Outro</item>
     </string-array>
 
+    <!-- Mensajes y etiquetas dinámicas -->
+    <string name="toast_letra_vacia">Escribí la letra antes de agregar</string>
+    <string name="toast_letras_guardadas">Letras guardadas en el proyecto</string>
+    <string name="titulo_letras_guardadas">Letras guardadas</string>
+    <string name="formato_info_proyecto">%1$s  •  Tonalidad: %2$s  •  %3$s</string>
+    <string name="formato_bpm">%s BPM</string>
+
 </resources>
