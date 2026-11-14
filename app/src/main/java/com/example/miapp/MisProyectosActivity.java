@@ -1,15 +1,13 @@
 package com.example.miapp;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import java.util.List;
 
@@ -31,7 +29,7 @@ public class MisProyectosActivity extends AppCompatActivity {
         });
     }
 
-    // Usamos onResume para que la lista se refresque automáticamente si creas un proyecto y vuelves
+    // Usamos onResume para sincronizar desde Firestore al abrir o volver a esta pantalla
     @Override
     protected void onResume() {
         super.onResume();
@@ -39,8 +37,29 @@ public class MisProyectosActivity extends AppCompatActivity {
     }
 
     private void cargarProyectos() {
+        // Primero mostramos lo que ya esté en memoria mientras llega la respuesta de la nube
+        renderizarTarjetas(RepositorioProyectos.obtenerTodos());
+
+        // Descargamos los datos actualizados desde Firestore
+        RepositorioProyectos.cargarDesdeFirestore(new RepositorioProyectos.OnProyectosCargadosListener() {
+            @Override
+            public void onCargados(List<ProyectoMusical> proyectos) {
+                renderizarTarjetas(proyectos);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Toast.makeText(
+                        MisProyectosActivity.this,
+                        "Error al cargar proyectos: " + e.getMessage(),
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
+    }
+
+    private void renderizarTarjetas(List<ProyectoMusical> proyectos) {
         contenedorProyectos.removeAllViews();
-        List<ProyectoMusical> proyectos = RepositorioProyectos.obtenerTodos();
 
         for (ProyectoMusical proyecto : proyectos) {
             LinearLayout tarjeta = new LinearLayout(this);
@@ -64,9 +83,10 @@ public class MisProyectosActivity extends AppCompatActivity {
             txtNombre.setTextColor(getResources().getColor(android.R.color.black, getTheme()));
 
             TextView txtInfo = new TextView(this);
-            String tempoTexto = proyecto.getTempo().trim().isEmpty()
+            String tempo = proyecto.getTempo() != null ? proyecto.getTempo().trim() : "";
+            String tempoTexto = tempo.isEmpty()
                     ? "-"
-                    : getString(R.string.formato_bpm, proyecto.getTempo());
+                    : getString(R.string.formato_bpm, tempo);
             txtInfo.setText(getString(
                     R.string.formato_info_proyecto,
                     proyecto.getGenero(),
