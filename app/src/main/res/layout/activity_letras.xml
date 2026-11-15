@@ -73,7 +73,9 @@
                 android:inputType="textMultiLine|textCapSentences"
                 android:hint="@string/hint_contenido_letra"
                 android:background="@color/white"
-                android:padding="@dimen/margin_small" />
+                android:padding="@dimen/margin_small"
+                android:textColor="@color/texto_oscuro"
+                android:textColorHint="@color/texto_hint"/>
 
             <Button
                 android:id="@+id/btnAgregarSeccion"

@@ -17,5 +17,10 @@
         <color name="button_primary">#2563EB</color>
         <color name="text_on_button">#FFFFFF</color>
 
+        <color name="texto_oscuro">#1A1A1A</color>
+        <color name="texto_hint">#757575</color>
+        <color name="fondo_input">#FFFFFF</color>
+
+
 
 </resources>
